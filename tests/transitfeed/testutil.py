@@ -55,8 +55,7 @@ class FindUniqueIdTestCase(test_util.TestCase):
     for i in range(0, 5):
       d[util.FindUniqueId(d)] = 1
     k = d.keys()
-    k.sort()
-    self.assertEqual(('0', '1', '2', '3', '4'), tuple(k))
+    self.assertEqual(('0', '1', '2', '3', '4'), tuple(sorted(k)))
 
   def test_AvoidCollision(self):
     d = {'1': 1}
