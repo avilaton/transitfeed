@@ -150,7 +150,7 @@ class AgencyAttributesTestCase(util.ValidationTestCase):
     self.assertEquals({"agency_name": "Test Agency",
                        "agency_url": "http://example.com",
                        "agency_timezone": "America/Los_Angeles"},
-                      dict(agency.iteritems()))
+                      dict(agency.items()))
 
 
 class DeprecatedAgencyFieldsTestCase(util.MemoryZipTestCase):

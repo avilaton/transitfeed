@@ -291,8 +291,8 @@ class ScheduleRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
       # if a non-existent trip is searched for, the return nothing
       return
     route = schedule.GetRoute(trip.route_id)
-    trip_row = dict(trip.iteritems())
-    route_row = dict(route.iteritems())
+    trip_row = dict(trip.items())
+    route_row = dict(route.items())
     return [['trips.txt', trip_row], ['routes.txt', route_row]]
 
   def handle_json_GET_tripstoptimes(self, params):

@@ -401,7 +401,7 @@ class KMLWriter(object):
     """
 
     def CreateElements(current_element, current_dict):
-      for (key, value) in current_dict.iteritems():
+      for (key, value) in current_dict.items():
         element = ET.SubElement(current_element, key)
         if isinstance(value,dict):
           CreateElements(element, value)

@@ -67,9 +67,9 @@ class GtfsObjectBase(GtfsFactoryUser):
     else:
       raise AttributeError(name)
 
-  def iteritems(self):
+  def items(self):
     """Return a iterable for (name, value) pairs of public attributes."""
-    for name, value in self.__dict__.iteritems():
+    for name, value in self.__dict__.items():
       if (not name) or name[0] == "_":
         continue
       yield name, value
@@ -103,7 +103,7 @@ class GtfsObjectBase(GtfsFactoryUser):
   # can't be fixed until the merger is changed to not use a/b_merge_map.
 
   def __repr__(self):
-    return "<%s %s>" % (self.__class__.__name__, sorted(self.iteritems()))
+    return "<%s %s>" % (self.__class__.__name__, sorted(self.items()))
 
   def keys(self):
     """Return iterable of columns used by this object."""

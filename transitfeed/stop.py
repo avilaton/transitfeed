@@ -62,7 +62,7 @@ class Stop(GtfsObjectBase):
       if isinstance(field_dict, self.__class__):
         # Special case so that we don't need to re-parse the attributes to
         # native types iteritems returns all attributes that don't start with _
-        for k, v in field_dict.iteritems():
+        for k, v in field_dict.items():
           self.__dict__[k] = v
       else:
         self.__dict__.update(field_dict)

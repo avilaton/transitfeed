@@ -426,13 +426,13 @@ class DivaImporter:
   def WriteCalendar(self, out):
     out.write('service_id,monday,tuesday,wednesday,thursday,'
               'friday,saturday,sunday,start_date,end_date\n')
-    for service_id, service in self.services.iteritems():
+    for service_id, service in self.services.items():
       out.write('%s,0,0,0,0,0,0,0,%d,%d\n' %
                (EncodeForCSV(service_id), service[0], service[-1]))
 
   def WriteCalendarDates(self, out):
     out.write('service_id,date,exception_type\n')
-    for service_id, service in self.services.iteritems():
+    for service_id, service in self.services.items():
       encoded_service_id = EncodeForCSV(service_id)
       for date in service:
         out.write('%s,%d,1\n' % (encoded_service_id, date))
