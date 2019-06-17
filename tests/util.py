@@ -21,7 +21,7 @@ from __future__ import print_function
 import os
 import os.path
 import re
-from six import StringIO
+from six import StringIO, BytesIO
 import shutil
 import subprocess
 import sys
@@ -197,7 +197,7 @@ class TempDirTestCaseBase(GetPathTestCase):
 
     Returns:
         The new file's in-memory contents as a file-like object."""
-    zipfile_mem = StringIO()
+    zipfile_mem = BytesIO()
     zip = zipfile.ZipFile(zipfile_mem, 'a')
     for arcname, contents in dict.items():
       zip.writestr(arcname, contents)
