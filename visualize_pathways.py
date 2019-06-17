@@ -40,6 +40,8 @@ Usage:
 
 from __future__ import print_function
 
+from six import text_type
+
 from enum import Enum
 import argparse
 import csv
@@ -210,7 +212,7 @@ def escape_graphviz_id(gtfs_id):
 
 
 def truncate_string(s, max_length=20):
-    s = unicode(s, 'utf-8', errors='ignore')
+    s = text_type(s, 'utf-8', errors='ignore')
     if max_length > 0 and len(s) > max_length:
         s = u'%s..%s' % (s[:max_length - 4], s[-2:])
     return s.encode('utf-8')

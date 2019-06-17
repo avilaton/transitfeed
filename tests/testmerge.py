@@ -23,7 +23,7 @@ __author__ = 'timothy.stranex@gmail.com (Timothy Stranex)'
 import merge
 import os.path
 import re
-from six import StringIO
+from six import StringIO, text_type
 from tests import util
 import transitfeed
 import unittest
@@ -576,7 +576,7 @@ class TestAgencyMerger(util.TestCase):
     # Force a1.agency_id to be unicode to make sure it is correctly encoded
     # to utf-8 before concatinating to the agency_name containing non-ascii
     # characters.
-    self.a1.agency_id = unicode(self.a1.agency_id)
+    self.a1.agency_id = text_type(self.a1.agency_id)
     self.a2.agency_id = str(self.a1.agency_id)
     self.a2.agency_name = 'different \xc3\xa9'
     self.fm.a_schedule.AddAgencyObject(self.a1)

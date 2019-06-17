@@ -21,6 +21,8 @@ You must provide a Google Maps API key.
 """
 from __future__ import print_function
 
+from six import text_type
+
 
 import BaseHTTPServer, sys, urlparse
 import bisect
@@ -100,7 +102,7 @@ class ScheduleRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
       k = urllib.unquote(k)
       if '=' in k:
         k, v = k.split('=', 1)
-        parsed_params[k] = unicode(v, 'utf8')
+        parsed_params[k] = text_type(v, 'utf8')
       else:
         parsed_params[k] = ''
 

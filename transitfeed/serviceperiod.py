@@ -15,6 +15,8 @@
 # limitations under the License.
 
 from __future__ import absolute_import
+
+from six import text_type
 import datetime
 import re
 import time
@@ -113,7 +115,7 @@ class ServicePeriod(object):
     """Generates tuples of calendar_dates.txt values. Yield zero tuples if
     this ServicePeriod should not be in calendar_dates.txt ."""
     for date, (exception_type, _) in self.date_exceptions.items():
-      yield (self.service_id, date, unicode(exception_type))
+      yield (self.service_id, date, text_type(exception_type))
 
   def GetCalendarDatesFieldValuesTuples(self):
     """Return a list of date execeptions"""

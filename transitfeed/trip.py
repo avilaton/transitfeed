@@ -17,7 +17,7 @@
 from __future__ import absolute_import
 import warnings
 
-from six import string_types
+from six import string_types, text_type
 
 from .gtfsobjectbase import GtfsObjectBase
 from . import problems as problems_module
@@ -479,8 +479,8 @@ class Trip(GtfsObjectBase):
       return (self.trip_id,
               util.FormatSecondsSinceMidnight(headway[0]),
               util.FormatSecondsSinceMidnight(headway[1]),
-              unicode(headway[2]),
-              unicode(headway[3]))
+              text_type(headway[2]),
+              text_type(headway[3]))
 
   def GetFrequencyOutputTuples(self):
     tuples = []
